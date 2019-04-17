@@ -50,12 +50,13 @@ Php::Value makeArray(ParsedJson::iterator & pjh, bool assoc)
 		return pjh.get_integer();
 	} else {
 		switch (pjh.get_type()) {
-			case 'n':
-				return nullptr;
 			case 't':
 				return true;
 			case 'f':
 				return false;
+			case 'n':
+			default:
+				return nullptr;
 		}
 	}
 }
